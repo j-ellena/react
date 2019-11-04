@@ -16,6 +16,7 @@ const V2Button = ({
   iconLeft,
   iconRight,
   onClick,
+  progress,
   ...props
 }) => {
   const Element = tag || 'button';
@@ -29,14 +30,14 @@ const V2Button = ({
         emphasis && olt[`V2Button${pascalize(emphasis)}`],
         buttonType && olt[`V2Button${pascalize(buttonType)}`],
         theme && olt[`V2Button${pascalize(theme)}`],
-        iconLeft && olt[`Icon${pascalize(iconLeft)}`],
-        iconLeft && olt.V2ButtonIconLeft,
-        iconRight && olt[`Icon${pascalize(iconRight)}`],
-        iconRight && olt.V2ButtonIconRight,
+        !progress && iconLeft && olt[`Icon${pascalize(iconLeft)}`],
+        !progress && iconLeft && olt.V2ButtonIconLeft,
+        !progress && iconRight && olt[`Icon${pascalize(iconRight)}`],
+        !progress && iconRight && olt.V2ButtonIconRight,
         className,
       )}
     >
-      {children}
+      {progress ? <i className="olt-Spinner" /> : children}
     </Element>
   );
 };
@@ -90,6 +91,10 @@ V2Button.propTypes = {
    * The theme of this button, by default its rendered with theme `light`.
    */
   theme: oneOf(['light', 'dark']),
+  /**
+   * Hide the child elements and show the progress spinner instead.
+   */
+  progress: bool,
 };
 
 V2Button.defaultProps = {
@@ -103,6 +108,7 @@ V2Button.defaultProps = {
   emphasis: undefined,
   buttonType: 'default',
   theme: 'light',
+  progress: false,
 };
 
 export { V2Button };

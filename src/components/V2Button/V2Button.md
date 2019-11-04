@@ -469,3 +469,20 @@ import { V2Button, FloatingList } from '@lightelligence/react';
 </FloatingList>
 ```
 
+### Progress
+
+With `progress` you can show the progress spinner on your button.
+
+```js
+import { V2Button, FloatingList } from '@lightelligence/react';
+<FloatingList>
+  <V2Button progress>Label</V2Button>
+  <V2Button iconLeft="action-add-default" progress>Label</V2Button>
+  <V2Button iconRight="action-add-default" emphasis="secondary" progress>Label</V2Button>
+  <V2Button buttonType="default" progress>Confirmative</V2Button>
+  <V2Button buttonType="confirmative" progress>Confirmative</V2Button>
+  <V2Button buttonType="destructive" progress>Destructive</V2Button>
+  <V2Button buttonType="action" emphasis="tertiary" progress>Action</V2Button>
+</FloatingList>
+```
+
